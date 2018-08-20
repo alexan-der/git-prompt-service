@@ -1,0 +1,30 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://localhost:8080/ws/prompts"
+           xmlns:ps="http://localhost:8080/ws/prompts"
+           elementFormDefault="qualified">
+
+    <xs:element name="getPromptRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getPromptResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="prompt" type="ps:prompt"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="prompt">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="text" type="xs:string"/>
+            <xs:element name="time" type="xs:dateTime"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

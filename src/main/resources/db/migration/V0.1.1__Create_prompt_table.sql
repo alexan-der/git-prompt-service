@@ -1,0 +1,7 @@
+
+
+CREATE TABLE prompt (
+  id BIGINT UNSIGNED NOT NULL,
+  text VARCHAR(1024),
+  time TIMESTAMP NOT NULL
+);
