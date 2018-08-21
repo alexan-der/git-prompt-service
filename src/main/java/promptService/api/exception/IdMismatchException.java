@@ -7,8 +7,4 @@ public class IdMismatchException extends Exception {
         return "ID does not exist or invalid!";
     }
 
-    @Override
-    public String getLocalizedMessage() {
-        return "ID does not exist or invalid!";
-    }
 }

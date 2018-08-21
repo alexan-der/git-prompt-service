@@ -7,8 +7,4 @@ public class DateFormatException extends Exception {
         return "Unparseable date parameter! Proper date format: YYYY-MM-DD.";
     }
 
-    @Override
-    public String getLocalizedMessage() {
-        return "Unparseable date parameter! Proper date format: YYYY-MM-DD.";
-    }
 }

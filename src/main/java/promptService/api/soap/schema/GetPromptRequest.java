@@ -1,5 +1,7 @@
 package promptService.api.soap.schema;
 
+import lombok.Getter;
+import lombok.Setter;
 import promptService.api.soap.WebServiceConfig;
 
 import javax.xml.bind.annotation.*;
@@ -10,14 +12,7 @@ import javax.xml.bind.annotation.*;
 public class GetPromptRequest {
 
     @XmlElement(namespace = WebServiceConfig.NAMESPACE, name = "id")
+    @Getter @Setter
     private String id;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String value) {
-        this.id = value;
-    }
 
 }

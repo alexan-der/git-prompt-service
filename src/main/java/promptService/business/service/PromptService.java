@@ -7,9 +7,8 @@ import promptService.api.exception.IdMismatchException;
 import promptService.business.entity.Prompt;
 import promptService.business.repository.PromptRepository;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -39,13 +38,11 @@ public class PromptService {
     }
 
     public List<Prompt> getPromptsByDateRange(String after, String before) throws DateFormatException {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-M-d H:m:s");
-
         try {
-            Date dateAfter = dateFormat.parse(after + " 00:00:00");
-            Date dateBefore = dateFormat.parse(before + " 23:59:59");
-            return promptRepository.findByTimeAfterAndTimeBeforeOrderByTimeDesc(dateAfter, dateBefore);
-        } catch (ParseException e) {
+            LocalDateTime dateTimeAfter = LocalDate.parse(after).atTime(0,0, 0);
+            LocalDateTime dateTimeBefore = LocalDate.parse(before).atTime(23, 59, 59);
+            return promptRepository.findByTimeAfterAndTimeBeforeOrderByTimeDesc(dateTimeAfter, dateTimeBefore);
+        } catch (Exception e) {
             throw new DateFormatException();
         }
     }

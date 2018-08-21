@@ -1,5 +1,7 @@
 package promptService.api.soap.schema;
 
+import lombok.Getter;
+import lombok.Setter;
 import promptService.api.soap.WebServiceConfig;
 import promptService.business.entity.Prompt;
 
@@ -13,15 +15,8 @@ import java.util.List;
 public class GetPromptResponse {
 
     @XmlElement(namespace = WebServiceConfig.NAMESPACE, name = "prompt", required = true)
+    @Getter @Setter
     private List<Prompt> prompts = new ArrayList<>();
-
-    public List<Prompt> getPrompts() {
-        return prompts;
-    }
-
-    public void setPrompts(List<Prompt> prompts) {
-        this.prompts = prompts;
-    }
 
     public void addPrompt(Prompt value) {
         this.prompts.add(value);
