@@ -14,7 +14,10 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler({ IdMismatchException.class, DateFormatException.class })
     public ResponseEntity<ApiError> handleBadRequestError(Exception e) {
-        return new ResponseEntity<>(new ApiError(HttpStatus.BAD_REQUEST.value(), e!=null?e.getMessage():""), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(
+                new ApiError(HttpStatus.BAD_REQUEST.value(), e!=null?e.getMessage():""),
+                HttpStatus.BAD_REQUEST
+        );
     }
 
 }
